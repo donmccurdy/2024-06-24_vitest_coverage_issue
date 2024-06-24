@@ -1,0 +1,32 @@
+{
+  "name": "@donmccurdy/fibonacci",
+  "version": "0.0.0",
+  "author": "Don McCurdy <dm@donmccurdy.com>",
+  "license": "BlueOak-1.0.0",
+  "private": true,
+  "type": "module",
+  "sideEffects": false,
+  "source": "./src/fibonacci.ts",
+  "main": "./dist/fibonacci.cjs",
+  "module": "./dist/fibonacci.module.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/fibonacci.cjs",
+      "default": "./dist/fibonacci.modern.js"
+    }
+  },
+  "scripts": {
+    "build": "microbundle --format cjs,modern --no-compress",
+    "build:watch": "microbundle watch --format cjs,modern --no-compress",
+    "test": "vitest run",
+    "coverage": "vitest run --coverage",
+    "clean": "rm -rf dist/*"
+  },
+  "devDependencies": {
+    "@vitest/coverage-istanbul": "^1.6.0",
+    "@vitest/coverage-v8": "^1.6.0",
+    "microbundle": "^0.15.1",
+    "vitest": "^1.6.0"
+  }
+}
